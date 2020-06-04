@@ -1,0 +1,40 @@
+{
+  "name": "ui_tests",
+  "version": "0.0.1",
+  "description": "E2E UI testing framework",
+  "main": "index.js",
+  "scripts": {
+    "cypress:open": "npx cypress open",
+    "cy:run": "npx cypress run",
+    "cyp-cleanup": "rm -fr cypress/reports/junit ; rm -fr cypress/reports/mochawesome ; rm -fr cypress/screenshots/e2e_tests ; rm -fr cypress/screenshots ;  rm -fr cypress/videos ; rm -fr cypress/videos/e2e_tests",
+    "cyp-make-directories": "mkdir cypress/screenshots && mkdir cypress/videos",
+    "sort-screenshots": "mkdir cypress/reports/mochawesome/cypress && mv cypress/screenshots/ cypress/reports/mochawesome/cypress/screenshots",
+    "sort-videos": "mv cypress/videos/ cypress/reports/mochawesome/cypress/videos",
+    "merge_reports": "npx mochawesome-merge --reportDir cypress/reports/mochawesome/mochawesome-report > cypress/reports/mochawesome/mochawesome-report/mergedReport.json",
+    "generate_mochawesome_report": "npx mochawesome-report-generator --reportDir cypress/reports/mochawesome/final_mochawesome-report cypress/reports/mochawesome/mochawesome-report/mergedReport.json",
+    "e2e_tests": "npm run cyp-cleanup && npm run cyp-make-directories && npx cypress run ; npm run merge_reports && npm run generate_mochawesome_report && npm run sort-screenshots"
+  },
+  "author": "Csaba G. Filep",
+  "license": "ISC",
+  "devDependencies": {
+    "ansicolor": "^1.1.89",
+    "chai-colors": "^1.0.1",
+    "cypress": "^4.7.0",
+    "cypress-log-to-output": "^1.0.4",
+    "cypress-multi-reporters": "^1.1.22",
+    "cypress-react-unit-test": "^2.4.3",
+    "cypress-xpath": "^1.4.0",
+    "faker": "^4.1.0",
+    "gmail-tester": "^1.1.1",
+    "mocha": "5.2.0",
+    "mocha-junit-reporter": "^1.23.0",
+    "mocha-junit-reporters": "^1.23.6",
+    "mochawesome": "^4.0.0",
+    "mochawesome-merge": "^2.0.1",
+    "mochawesome-report-generator": "^3.1.5"
+  },
+  "dependencies": {
+    "convert-csv-to-array": "^1.0.3",
+    "js-base64": "^2.5.1"
+  }
+}

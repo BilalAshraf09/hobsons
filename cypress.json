@@ -1,0 +1,27 @@
+{
+  "projectId": "ei7whf",
+  "baseUrl": "https://Hobsons.com",
+  "integrationFolder": "cypress/tests/e2e_tests",
+  "animationDistanceThreshold": 5,
+  "numTestsKeptInMemory": 1,
+  "viewportWidth": 2560,
+  "viewportHeight": 1600,
+  "defaultCommandTimeout": 60000,
+  "pageLoadTimeout": 100000,
+  "execTimeout": 15000,
+  "waitForAnimations": true,
+  "trashAssetsBeforeRuns": true,
+  "reporter": "cypress-multi-reporters",
+  "chromeWebSecurity": false,
+  "modifyObstructiveCode": true,
+  "reporterOptions": {
+    "configFile": "reporterOpts.json"
+  },
+  "blacklistHosts": [
+    "https://api.segment.io",
+    "https://api.amplitude.com",
+    "https://www.google-analytics.com",
+    "https://www.googletagmanager.com",
+    "https://in.hotjar.com"
+  ]
+}

@@ -1,0 +1,9 @@
+# Created by .ignore support plugin (hsz.mobi)
+/.idea/
+/node_modules/
+cypress/reports/
+cypress/reports/*
+cypress/videos/
+cypress/screenshots/
+cypress/plugins/credentials.json
+cypress/plugins/token.json
