@@ -5,7 +5,6 @@ export const ValidateHomePage = () => {
 	return (
 		cy
 			.xpath(home.ShowMore_Button)
-			.wait(5000)
 			.should('be.visible')
 			.xpath(home.Title_Link)
 			.should('be.visible')
@@ -35,41 +34,40 @@ export const CheckHeader = (header) => {
 	);
 };
 
-export const CheckLinks = (menuItemOne,menuItemTwo) => {
-	return (
-		cy
-		.xpath('(//a[.="'+menuItemOne+'"])[1]')
+export const CheckLinks = (items) => {
+	for(var i = 0; i < items.length; i++){
+		cy.xpath('(//a[.="'+items[i]+'"])[1]')
 		.should('exist')
-		.xpath('(//a[.="'+menuItemTwo+'"])[1]')
-		.should('exist')
-	);
+	 }
 };
 
-export const ValidateTopMenu = (menuItemOne,menuItemTwo,menuItemThree,menuItemFour) => {
+export const ValidateTopMenu = (topmenu) => {
 		cy
 		    .xpath(home.Menu_Link)
-			.click({force: true})
-			.wait(5000);
-			CheckLinks(menuItemOne,menuItemTwo);
-			CheckLinks(menuItemThree,menuItemFour);
+			.click({force: true});
+			CheckLinks(topmenu);
 };
 
-	export const CheckResourcesEventMenu = (menuItemOne,menuItemTwo) => {
+export const CheckResourcesEventMenu = (resourcesmenu) => {
 			cy
 				.xpath(home.Resources_Link)
-				.click({force: true})
-				.wait(5000);
-				CheckLinks(menuItemOne,menuItemTwo);
-			cy
-			    .wait(5000)
-				.xpath(home.Events_Link)
-				.click({force: true});
-			cy	
-				.wait(10000)
-				.xpath(home.Events_Item)
-				.should('be.visible');
+				.click();
+				CheckLinks(resourcesmenu);
 };
 
-export const CheckEvents = (eventOne,eventTwo,eventThree,eventFour) => {
-		CheckLinks(eventOne,eventTwo);
+export const OpenEventsPage = () => {
+
+	cy
+		.xpath(home.Resources_Link)
+		.click({force: true});
+	cy
+		.xpath(home.Events_Link)
+		.click({force: true});
+	cy	
+		.xpath(home.Events_Item)
+		.should('be.visible');
+};
+
+export const CheckEvents = (events) => {
+		CheckLinks(events);
 };

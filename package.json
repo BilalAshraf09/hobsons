@@ -14,7 +14,7 @@
     "generate_mochawesome_report": "npx mochawesome-report-generator --reportDir cypress/reports/mochawesome/final_mochawesome-report cypress/reports/mochawesome/mochawesome-report/mergedReport.json",
     "e2e_tests": "npm run cyp-cleanup && npm run cyp-make-directories && npx cypress run ; npm run merge_reports && npm run generate_mochawesome_report && npm run sort-screenshots"
   },
-  "author": "Csaba G. Filep",
+  "author": "Bilal Ashraf",
   "license": "ISC",
   "devDependencies": {
     "ansicolor": "^1.1.89",
