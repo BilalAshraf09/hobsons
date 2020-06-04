@@ -10,6 +10,7 @@ describe('Validate Home page', () => {
 			home_page_object.CheckHeader('How can we help your students?');
 			home_page_object.ValidateTopMenu('Solutions','Services','About','Blog');
 			home_page_object.CheckResourcesEventMenu('Events','All');
+			home_page_object.CheckEvents('ERDI Winter 2020','AASA NCE 2020');
 		});
 	});
 });

@@ -69,3 +69,7 @@ export const ValidateTopMenu = (menuItemOne,menuItemTwo,menuItemThree,menuItemFo
 				.xpath(home.Events_Item)
 				.should('be.visible');
 };
+
+export const CheckEvents = (eventOne,eventTwo,eventThree,eventFour) => {
+		CheckLinks(eventOne,eventTwo);
+};
